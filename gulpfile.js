@@ -16,7 +16,7 @@ gulp.task('script', function() {
 gulp.task('base',function() { 
   return gulp.src('./css/*.css')
   .pipe(base({
-    baseDir: './dist/css',
+    baseDir: './dist',
     maxImageSize: 40 * 1024,
     debug: false 
   }))
