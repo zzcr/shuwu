@@ -7,27 +7,31 @@ var cssnano = require('gulp-cssnano');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var base = require('gulp-base64');
-gulp.task('style', function() {
-  gulp.src('files/*.css')
-    .pipe(cssnano())
-    .pipe(gulp.dest('dist/styles'))
-});
-
 // 注册脚本合并压缩任务
 gulp.task('script', function() {
-  gulp.src('files/*.js')
+  gulp.src('js/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('dist/scripts'))
+    .pipe(gulp.dest('./dist/js'))
 });
 gulp.task('base',function() { 
-  return gulp.src('./files/*.css')
+  return gulp.src('./css/*.css')
   .pipe(base({
-    baseDir: './dist',
+    baseDir: './dist/css',
     maxImageSize: 40 * 1024,
     debug: false 
   }))
-  .pipe(gulp.dest('./dist')); 
+  .pipe(cssnano())
+  .pipe(gulp.dest('./dist/css')); 
 });
+gulp.task('html',function(){
+  gulp.src('./*.html')
+  .pipe(gulp.dest('./dist'))
+});
+gulp.task('images',function(){
+  gulp.src('./images/*.*')
+  .pipe(gulp.dest('./dist/images'))
+});
+gulp.task('default',['script','base','html','images']);
 
 
 

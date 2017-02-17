@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" rev="stylesheet" href="./css/common.css" type="text/css" media="all">
+    <link rel="stylesheet" rev="stylesheet" href="./css/style_pc.css" type="text/css" media="all">
+    <script language="javascript" type="text/javascript" src="./js/tab.js"></script>
+</head>
+
+<body>
+    <div class="globalbtm">
+        <div class="sublinks">
+        </div>
+    </div>
+    <div class="logo">
+        <a href="http://www.263zw.com/"></a>
+    </div>
+    <div class="nav">
+        <div class="navtop">
+            <ul>
+                <li class="current"><a href="http://www.263zw.com/">263中文</a></li>
+                <li><a href="http://www.263zw.com/modules/article/bookcase.php">我的书架</a></li>
+                <li><a href="http://www.263zw.com/modules/article/index.php?fullflag=1" target="_blank">全本小说</a> </li>
+                <li><a href="http://www.263zw.com/toplist_1.html">排行榜</a></li>
+                <li><a href="http://www.263zw.com/modules/article/myarticle.php">发布文章</a></li>
+            </ul>
+            <a class="keep" onclick="addHjpage(document.title)" href="http://www.263zw.com/">收入收藏夹</a>
+        </div>
+        <div class="navcon">
+            <div class="key">
+                <a href="http://www.263zw.com/list-1/">武侠.仙侠</a>|<a href="http://www.263zw.com/list-2/">都市.伦理</a>|<a href="http://www.263zw.com/list-3/">军事.历史</a>|<a href="http://www.263zw.com/list-4/">无限.末世</a>|<a href="http://www.263zw.com/list-5/">现代.言情</a>|<a href="http://www.263zw.com/list-6/">古代.言情</a>|<a href="http://www.263zw.com/list-7/">穿越.架空</a>|<a href="http://www.263zw.com/list-8/">总裁.豪门</a>
+            </div>
+            <div class="search">
+            </div>
+        </div>
+    </div>
+    <div class="navad">
+    </div>
+    <div class="main">
+        <div id="left">
+            <div class="block">
+                <div class="blocktitle">用户设置</div>
+                <div class="blockcontent">
+                    <ul class="ulitem">
+                        <li><a href="http://www.263zw.com/userdetail.php">用户资料</a></li>
+                        <li><a href="http://www.263zw.com/useredit.php">修改资料</a></li>
+                        <li><a href="http://www.263zw.com/setavatar.php">设置头像</a></li>
+                        <li><a href="http://www.263zw.com/passedit.php">修改密码</a></li>
+                        <li><a href="http://www.263zw.com/logout.php">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="block">
+                <div class="blocktitle">短消息</div>
+                <div class="blockcontent">
+                    <ul class="ulitem">
+                        <li><a href="http://www.263zw.com/message.php?box=inbox">收件箱</a></li>
+                        <li><a href="http://www.263zw.com/message.php?box=outbox">发件箱</a></li>
+                        <li><a href="http://www.263zw.com/newmessage.php">写新消息</a></li>
+                        <li><a href="http://www.263zw.com/newmessage.php?tosys=1">写给管理员</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="block">
+                <div class="blocktitle">工具箱</div>
+                <div class="blockcontent">
+                    <ul class="ulitem">
+                        <li><a href="http://www.263zw.com/myfriends.php">我的好友</a></li>
+                        <li><a href="http://www.263zw.com/ptopics.php?uid=self">我的会客室</a></li>
+                        <li><a href="http://www.263zw.com/mylink.php">我的链接</a></li>
+                        <li><a href="http://www.263zw.com/modules/article/bookcase.php">我的书架</a></li>
+                        <li><a href="http://www.263zw.com/modules/article/applywriter.php">申请作者</a></li>
+                        <li><a href="http://www.263zw.com/online.php">在线用户</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="centerm">
+            <div id="content">
+                <script language="javascript">
+                function check_confirm() {
+                    var checkform = document.getElementById('checkform');
+                    var checknum = 0;
+                    for (var i = 0; i < checkform.elements.length; i++) {
+                        if (checkform.elements[i].name == 'checkid[]' && checkform.elements[i].checked == true) checknum++;
+                    }
+                    if (checknum == 0) {
+                        alert('请先选择要操作的书目！');
+                        return false;
+                    }
+                    var newclassid = document.getElementById('newclassid');
+                    if (newclassid.value == -1) {
+                        if (confirm('确实要将选中书目移出书架么？')) return true;
+                        else return false;
+                    } else {
+                        return true;
+                    }
+                }
+                </script>
+                <form action="http://www.263zw.com/modules/article/bookcase.php" method="post" name="checkform" id="checkform" onsubmit="return check_confirm();">
+                    <div class="gridtop">
+                        您的书架可收藏 200 本，已收藏 5 本，本组有 5 本。 &nbsp;&nbsp;&nbsp;&nbsp;选择分组
+                        <select name="classlist" onchange="javascript:document.location=&#39;bookcase.php?classid=&#39;+this.value;">
+                            <option value="0" selected="selected">默认书架</option>
+                            <option value="1">第1组书架</option>
+                            <option value="2">第2组书架</option>
+                            <option value="3">第3组书架</option>
+                            <option value="4">第4组书架</option>
+                            <option value="5">第5组书架</option>
+                        </select>
+                    </div>
+                    <table class="grid" width="100%" align="center">
+                        <tbody>
+                            <tr align="center">
+                                <th width="5%">
+                                    <input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i&lt;this.form.elements.length;i++){ if (this.form.elements[i].name != &#39;checkkall&#39;) this.form.elements[i].checked = form.checkall.checked; }">
+                                </th>
+                                <th width="21%">文章名称</th>
+                                <th width="30%">最新章节</th>
+                                <th width="30%">书签</th>
+                                <th width="7%">更新</th>
+                                <th width="7%">操作</th>
+                            </tr>
+                            <tr>
+                                <td class="odd" align="center">
+                                    <input type="checkbox" id="checkid[]" name="checkid[]" value="36046"> </td>
+                                <td class="even"><span class="hottext">新</span><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=475899&amp;bid=36046&amp;indexflag=1" target="_blank">双子魔法师</a></td>
+                                <td class="odd"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=475899&amp;bid=36046&amp;cid=39029101" target="_blank">第109章 三支花（3）</a>
+                                </td>
+                                <td class="even">
+                                    <a href="http://www.263zw.com/modules/article/bookcase.php#" target="_blank"></a>
+                                </td>
+                                <td class="odd" align="center">02-17
+                                </td>
+                                <td class="even" align="center"><a href="javascript:if(confirm(&#39;确实要将本书移出书架么？&#39;)) document.location=&#39;/modules/article/bookcase.php?delid=36046&#39;;">移除</a></td>
+                            </tr>
+                            <tr>
+                                <td class="odd" align="center">
+                                    <input type="checkbox" id="checkid[]" name="checkid[]" value="36049"> </td>
+                                <td class="even"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=500619&amp;bid=36049&amp;indexflag=1" target="_blank">一次回眸一世情</a></td>
+                                <td class="odd"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=500619&amp;bid=36049&amp;cid=38990897" target="_blank">第3章 意料外的事</a>
+                                </td>
+                                <td class="even">
+                                    <a href="http://www.263zw.com/modules/article/bookcase.php#" target="_blank"></a>
+                                </td>
+                                <td class="odd" align="center">02-16
+                                </td>
+                                <td class="even" align="center"><a href="javascript:if(confirm(&#39;确实要将本书移出书架么？&#39;)) document.location=&#39;/modules/article/bookcase.php?delid=36049&#39;;">移除</a></td>
+                            </tr>
+                            <tr>
+                                <td class="odd" align="center">
+                                    <input type="checkbox" id="checkid[]" name="checkid[]" value="36045"> </td>
+                                <td class="even"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=262&amp;bid=36045&amp;indexflag=1" target="_blank">武神空间</a></td>
+                                <td class="odd"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=262&amp;bid=36045&amp;cid=32620730" target="_blank">第三千八百八十六章 大结局</a>
+                                </td>
+                                <td class="even">
+                                    <a href="http://www.263zw.com/modules/article/bookcase.php#" target="_blank"></a>
+                                </td>
+                                <td class="odd" align="center">10-10
+                                </td>
+                                <td class="even" align="center"><a href="javascript:if(confirm(&#39;确实要将本书移出书架么？&#39;)) document.location=&#39;/modules/article/bookcase.php?delid=36045&#39;;">移除</a></td>
+                            </tr>
+                            <tr>
+                                <td class="odd" align="center">
+                                    <input type="checkbox" id="checkid[]" name="checkid[]" value="36050"> </td>
+                                <td class="even"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=1044&amp;bid=36050&amp;indexflag=1" target="_blank">盖世战神</a></td>
+                                <td class="odd"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=1044&amp;bid=36050&amp;cid=11410613" target="_blank">第1264章 新书至尊剑皇已经上传</a>
+                                </td>
+                                <td class="even">
+                                    <a href="http://www.263zw.com/modules/article/bookcase.php#" target="_blank"></a>
+                                </td>
+                                <td class="odd" align="center">11-06
+                                </td>
+                                <td class="even" align="center"><a href="javascript:if(confirm(&#39;确实要将本书移出书架么？&#39;)) document.location=&#39;/modules/article/bookcase.php?delid=36050&#39;;">移除</a></td>
+                            </tr>
+                            <tr>
+                                <td class="odd" align="center">
+                                    <input type="checkbox" id="checkid[]" name="checkid[]" value="36044"> </td>
+                                <td class="even"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=1765&amp;bid=36044&amp;indexflag=1" target="_blank">盖世天尊</a></td>
+                                <td class="odd"><a href="http://www.263zw.com/modules/article/readbookcase.php?aid=1765&amp;bid=36044&amp;cid=1931493" target="_blank">盖世天尊后续剧情！</a>
+                                </td>
+                                <td class="even">
+                                    <a href="http://www.263zw.com/modules/article/bookcase.php#" target="_blank"></a>
+                                </td>
+                                <td class="odd" align="center">12-16
+                                </td>
+                                <td class="even" align="center"><a href="javascript:if(confirm(&#39;确实要将本书移出书架么？&#39;)) document.location=&#39;/modules/article/bookcase.php?delid=36044&#39;;">移除</a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="center" class="foot">选中项目
+                                    <select name="newclassid" id="newclassid">
+                                        <option value="-1" selected="selected">移出书架</option>
+                                        <option value="0">移到默认书架</option>
+                                        <option value="1">移到第1组书架</option>
+                                        <option value="2">移到第2组书架</option>
+                                        <option value="3">移到第3组书架</option>
+                                        <option value="4">移到第4组书架</option>
+                                        <option value="5">移到第5组书架</option>
+                                    </select>
+                                    <input name="btnsubmit" type="submit" value=" 确认 " class="button">
+                                    <input name="clsssid" type="hidden" value="0">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main m_foot">
+        <a href="http://www.263zw.com/" target="_blank">关于我们</a>|<a href="http://www.263zw.com/" target="_blank">联系我们</a>|<a href="http://www.263zw.com/" target="_blank">用户指南</a>|<a href="http://www.263zw.com/" target="_blank">商务合作</a>|<a href="http://www.263zw.com/">友情链接</a>|<a href="http://www.263zw.com/" target="_blank">客户服务</a>|
+        <script src="./bookcase_files/stat.php" language="JavaScript"></script>
+        <script src="./bookcase_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=5595543" target="_blank" title="站长统计">站长统计</a>
+        <br> 版权所有2000-2009 263中文，京ICP证030741号
+        <br>
+    </div>
+</body>
+
+</html>
